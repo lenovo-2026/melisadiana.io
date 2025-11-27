@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTOS - VENTAS JULIACA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFB6D9 0%, #FFC9E3 50%, #FFE5F1 100%);
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            min-height: 100vh;
+            box-shadow: 0 30px 80px rgba(255, 105, 180, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            overflow-y: auto;
+            color: white;
+            position: relative;
+            border-radius: 40px;
+            background: linear-gradient(180deg, #FF69B4 0%, #FFB6D9 40%, #FFFFFF 60%, #FFF5FA 100%);
+        }
+
+        /* --- SECCIÓN SUPERIOR ELEGANTE --- */
+        .top-section {
+            background: linear-gradient(135deg, #FF1493 0%, #FF69B4 50%, #FFB6D9 100%);
+            min-height: 180px;
+            padding: 30px 15px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Efecto background sutil con flores */
+        .top-section::before {
+            content: '✿ ❀ ✾ ❁ ✿ ❀ ✾ ❁';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            font-size: 2em;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 20px;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .top-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .main-title {
+            font-size: 2.6em;
+            font-weight: 900;
+            margin: 0;
+            color: #FFFFFF;
+            text-shadow: 3px 3px 12px rgba(255, 20, 147, 0.4);
+            letter-spacing: 4px;
+            animation: slideDown 0.8s ease-out;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+            position: relative;
+            z-index: 2;
+            word-spacing: 10px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title-part {
+            display: block;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin: 6px 0;
+            text-transform: uppercase;
+        }
+
+        .title-highlight {
+            font-size: 1.15em;
+            color: #FFE600;
+            font-weight: 900;
+            display: block;
+            margin: 8px 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 230, 0, 0.6);
+        }
+
+        .subtitle-top {
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* --- QR CONTAINER MEJORADO --- */
+        .qr-section {
+            min-height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF5FA 100%);
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        /* Corazones decorativos */
+        .qr-section::before {
+            content: '♥';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 2em;
+            color: #FFB6D9;
+            opacity: 0.3;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .qr-section::after {
+            content: '♥';
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            font-size: 2em;
+            color: #FF69B4;
+            opacity: 0.3;
+            animation: heartbeat 2s ease-in-out infinite 1s;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .qr-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: zoomIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s backwards;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .qr-container {
+            width: 280px;
+            height: 280px;
+            background: white;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3),
+                        0 15px 30px rgba(255, 182, 217, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 4px solid #FF69B4;
+            overflow: visible;
+        }
+
+        .qr-container::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: linear-gradient(135deg, #FFE600 0%, #FFB6D9 50%, #FF69B4 100%);
+            border-radius: 35px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .qr-container::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed #FFE600;
+            border-radius: 33px;
+            opacity: 0.5;
+            animation: rotateBorder 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .qr-inner {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #real-qr-code {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px;
+        }
+
+        #real-qr-code img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* --- SECCIÓN DE BENEFICIOS --- */
+        .benefits-section {
+            min-height: 140px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF5FA 100%);
+            padding: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #FF1493;
+            font-size: 0.95em;
+            font-weight: 600;
+            animation: slideUp 0.6s ease-out backwards;
+            padding: 8px 0;
+        }
+
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-icon {
+            font-size: 1.4em;
+            width: 28px;
+            text-align: center;
+            color: #FFE600;
+            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+        }
+
+        /* --- SECCIÓN INFERIOR: CTA --- */
+        .bottom-section {
+            background: linear-gradient(135deg, #FF1493 0%, #FF69B4 50%, #FF1493 100%);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 230, 0, 0.6), transparent);
+        }
+
+        /* Estrellas decorativas */
+        .bottom-section::after {
+            content: '✦ ✧ ✦ ✧ ✦';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 1.2em;
+            letter-spacing: 15px;
+        }
+
+        /* BOTONES CTA PREMIUM */
+        .cta-button {
+            background: linear-gradient(135deg, #FFE600 0%, #FFED4E 100%);
+            color: #FF1493;
+            border: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-size: 1.35em;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(255, 230, 0, 0.4),
+                        inset 0 -2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 230, 0, 0.6),
+                        inset 0 -2px 5px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-productos {
+            background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            color: white;
+            font-size: 1.15em;
+            padding: 14px 40px;
+            margin-top: 10px;
+        }
+
+        .btn-productos:hover {
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6),
+                        inset 0 -2px 5px rgba(0,0,0,0.15);
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cta-text {
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 30px;
+            }
+
+            .main-title {
+                font-size: 2.2em;
+                letter-spacing: 2px;
+            }
+
+            .title-part {
+                letter-spacing: 2px;
+            }
+
+            .title-highlight {
+                letter-spacing: 2px;
+            }
+
+            .qr-container {
+                width: 260px;
+                height: 260px;
+            }
+
+            .cta-button {
+                font-size: 1.15em;
+                padding: 14px 40px;
+            }
+
+            .btn-productos {
+                font-size: 1em;
+                padding: 12px 35px;
+            }
+
+            .benefit-item {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Animación general */
+        @keyframes fadeInAll {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            animation: fadeInAll 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SECCIÓN SUPERIOR -->
+        <div class="top-section">
+            <h1 class="main-title">
+                <span class="title-part">COMPRA-VENTA</span>
+                <span class="title-highlight">♥ JULIACA ♥</span>
+            </h1>
+            <p class="subtitle-top">✨ Descubre Nuestras Ofertas ✨</p>
+        </div>
+
+        <!-- QR CENTRAL -->
+        <div class="qr-section">
+            <div class="qr-wrapper">
+                <div class="qr-container">
+                    <div class="qr-inner">
+                        <div id="real-qr-code">
+                            <img src="qr.png" alt="QR Code Ventas Juliaca">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE BENEFICIOS -->
+        <div class="benefits-section">
+            <div class="benefit-item">
+                <span class="benefit-icon">✨</span>
+                <span>Productos Usados y Nuevos</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💝</span>
+                <span>Mejores Precios del Mercado</span>
+            </div>
+        </div>
+
+        <!-- SECCIÓN INFERIOR -->
+        <div class="bottom-section">
+            <div class="buttons-container">
+                <a href="https://wa.me/51937302368" class="cta-button" target="_blank">📱 937302368</a>
+                <a href="https://www.facebook.com/marketplace/profile/61580375016235/?ref=permalink&mibextid=dXMIcH" class="cta-button btn-productos" target="_blank">🛍️ VER PRODUCTOS</a>
+            </div>
+            <p class="cta-text">💫 ACCESO A OFERTAS EXCLUSIVAS 💫</p>
+        </div>
+    </div>
+</body>
+</html>
