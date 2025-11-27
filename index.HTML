@@ -20,23 +20,51 @@
             align-items: center;
             min-height: 100vh;
             background: linear-gradient(135deg, #FFB6D9 0%, #FFC9E3 50%, #FFE5F1 100%);
-            overflow: hidden;
             padding: 10px;
+            overflow: auto;
         }
 
         .container {
             width: 100%;
             max-width: 420px;
             min-height: 100vh;
+            max-height: 95vh;
             box-shadow: 0 30px 80px rgba(255, 105, 180, 0.3);
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
             overflow-y: auto;
+            overflow-x: hidden;
             color: white;
             position: relative;
             border-radius: 40px;
             background: linear-gradient(180deg, #FF69B4 0%, #FFB6D9 40%, #FFFFFF 60%, #FFF5FA 100%);
+        }
+
+        /* Estilos personalizados para la barra de scroll */
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: rgba(255, 182, 217, 0.2);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #FF69B4 0%, #FF1493 100%);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #FF1493 0%, #C71585 100%);
+        }
+
+        /* Para Firefox */
+        .container {
+            scrollbar-width: thin;
+            scrollbar-color: #FF69B4 rgba(255, 182, 217, 0.2);
         }
 
         /* --- SECCIÓN SUPERIOR ELEGANTE --- */
